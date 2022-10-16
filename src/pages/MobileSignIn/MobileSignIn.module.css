@@ -27,9 +27,16 @@ h1{
   height:0.4rem;
   border:none;
   border-bottom:1px solid #e1e3e7;
-  margin-bottom:0.3rem;
+ 
   color:#a3abb9;
-  font-size: 0.16rem;
+  font-size: 0.16rem;  
+  outline:none;
+}
+.inputBox:first-child{
+  margin-bottom:0.3rem;
+}
+.messageBox{
+  height:0.2rem;
 }
 .buttonBox{
   width:100%;
@@ -40,6 +47,7 @@ h1{
   border:none;
   border-radius: 10px;
 }
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {

@@ -1,30 +1,48 @@
-import React from "react";
+import React,{useState} from "react";
 import topIcon from './../../assets/images/signicon.png';
 import Styles from './MobileSignIn.module.css';
-
-
+const {useHistory} = require('react-router-dom');
 
 export const MobileSignIn: React.FC = (props) =>  {
-  // const usernameRef = useRef();
-  // const passwordRef = useRef();
-//   const handleSubmit = (e)=>{
-//     e.preventDefault();
-//     const username = usernameRef.current.value;
-//     const password = passwordRef.current.value;
-// }
+  const [username, setUsername] = useState('admin');
+  const [password, setPassword] = useState('123456');
+  const [alertMessage, setAlertMessage] = useState('');
+  const history = useHistory();
+// ​
+  const handleSubmit = () => {
+      // e.preventDefault();
+      // 判断输入帐号和密码
+      if (username === 'admin' && password === '123456') {
+          // saveToken(account);
+          history.push('/welcome')
+      } else {
+        setAlertMessage('Invalid account or password!');
+      }
+  }
+  const handleUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value) 
+    console.log(e.target.value,'e')
+  };
+
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value) 
+    console.log(e.target.value,'e')
+  };
+
 
   return <div className={Styles.signInBox}>    
     <div className={Styles.signInContainer}><img src={topIcon} alt={'SignIn'} className={Styles.hearderImg} /></div>
 
     <h1>SignIn</h1> 
     <div className={Styles.signInForm}>
-      <form>
+      <form
+        onSubmit={handleSubmit}
+      >
           <input
-            // ref={usernameRef}
-            type='text' placeholder='username' className={Styles.inputBox}/><br />
+            type='text' placeholder='username' className={Styles.inputBox} onChange={handleUsername}/><br />
           <input
-            // ref={passwordRef}
-          type='password' placeholder='password' className={Styles.inputBox} /><br />
+          type='password' placeholder='password' className={Styles.inputBox} onChange={handlePassword} /><br />
+        <p className={Styles.messageBox}>{ alertMessage}</p>
           <button
             // onClick={handleSubmit}
           className={Styles.buttonBox}
