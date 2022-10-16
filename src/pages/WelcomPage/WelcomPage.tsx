@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import welcomeIcon from './../../assets/images/welcomeIcon.png';
 import Styles from './WelcomPage.module.css';
 
-const {useHistory} = require('react-router-dom');
+// const {useHistory} = require('react-router-dom');
 
 export const WelcomPage: React.FC = (props) => {
   // const history = useHistory();
