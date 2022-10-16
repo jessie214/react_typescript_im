@@ -9,8 +9,8 @@ export const MobileSignIn: React.FC = (props) =>  {
   const [alertMessage, setAlertMessage] = useState('');
   const history = useHistory();
 // ​
-  const handleSubmit = () => {
-      // e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
       // 判断输入帐号和密码
       if (username === 'admin' && password === '123456') {
           // saveToken(account);
@@ -21,12 +21,12 @@ export const MobileSignIn: React.FC = (props) =>  {
   }
   const handleUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value) 
-    console.log(e.target.value,'e')
+    setAlertMessage('')
   };
 
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value) 
-    console.log(e.target.value,'e')
+    setAlertMessage('')
   };
 
 
@@ -35,18 +35,11 @@ export const MobileSignIn: React.FC = (props) =>  {
 
     <h1>SignIn</h1> 
     <div className={Styles.signInForm}>
-      <form
-        onSubmit={handleSubmit}
-      >
-          <input
-            type='text' placeholder='username' className={Styles.inputBox} onChange={handleUsername}/><br />
-          <input
-          type='password' placeholder='password' className={Styles.inputBox} onChange={handlePassword} /><br />
-        <p className={Styles.messageBox}>{ alertMessage}</p>
-          <button
-            // onClick={handleSubmit}
-          className={Styles.buttonBox}
-            type='submit'>SignIn</button>
+      <form onSubmit={handleSubmit}>
+          <input type='text' placeholder='username' className={Styles.inputBox} onChange={handleUsername}/><br />
+          <input type='password' placeholder='password' className={Styles.inputBox} onChange={handlePassword} /><br />
+          <p className={Styles.messageBox}>{ alertMessage}</p>
+          <button  className={Styles.buttonBox} type='submit'>SignIn</button>
       </form>
     </div>
     {/* <Link to={'./welcome'}><button>SignIn</button></Link> */}
