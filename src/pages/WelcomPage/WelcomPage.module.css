@@ -1,6 +1,16 @@
-.signInBox{
-  background-color: aquamarine;  
+.welcomContainer{
+  width:80vw;
+  margin:0 auto;
+  margin-top:20vh
 }
-.singInBox h1{
-  color: rgb(3, 99, 109);
+.welcomIcon{
+  width:100%
+}
+.welcomeImg{
+  width:100%;
+}
+
+h1{
+  margin-top:0.3rem;
+  font-size:0.24rem;
 }

@@ -32,7 +32,6 @@ export const MobileSignIn: React.FC = (props) =>  {
 
   return <div className={Styles.signInBox}>    
     <div className={Styles.signInContainer}><img src={topIcon} alt={'SignIn'} className={Styles.hearderImg} /></div>
-
     <h1>SignIn</h1> 
     <div className={Styles.signInForm}>
       <form onSubmit={handleSubmit}>
