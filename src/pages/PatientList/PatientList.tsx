@@ -13,7 +13,7 @@ export const PatientList: React.FC  = (props) => {
   const history = useHistory();
   // console.log(language, 'dd')
   const [PatientListData, setPatientListData] = useState([]);
-  const [selectPatient,setSelectPatient] = useState<number>();
+  // const [selectPatient,setSelectPatient] = useState<number>();
   
   useEffect(() => {
     // store.dispatch({
