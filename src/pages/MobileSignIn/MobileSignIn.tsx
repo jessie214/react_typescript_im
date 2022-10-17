@@ -3,6 +3,9 @@ import topIcon from './../../assets/images/signicon.png';
 import Styles from './MobileSignIn.module.css';
 import store from './../../redux/store';
 // import { useSelector } from "../../redux/hooks";
+// import {
+//   savePatientActionCreator,
+// } from "../../redux/patient/patientActions";
 import patientData from '../../mockdata/patient.json';
 const {useHistory} = require('react-router-dom');
 
@@ -15,7 +18,7 @@ export const MobileSignIn: React.FC = (props) => {
   
   useEffect(() => {
     store.dispatch({
-      type: "savePatientList",
+      type: "save_patientList",
       payload:patientData,
     }) 
   },[])
@@ -23,7 +26,7 @@ export const MobileSignIn: React.FC = (props) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       // 判断输入帐号和密码
-      if (username === 'admin' && password === '123456') {
+    if (username === 'admin' && password === '123456') {
           // saveToken(account);
           history.push('/welcome')
       } else if(username === '' && password === ''){

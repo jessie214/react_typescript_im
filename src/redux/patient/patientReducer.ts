@@ -1,3 +1,5 @@
+import { SAVE_PATIENTLIST } from "./patientActions";
+
 export interface patientState {
   patientList: [];
   // { id: string; name: string ,username:string,email:string,address:{},phone:string,icon:string}[]
@@ -6,13 +8,14 @@ export interface patientState {
 const defaultState: patientState = {
   patientList: [],
 };
-
-const stateAction= (state = defaultState, action: any) => {
-  if (action.type === "savePatientList") {
-    const newState = {...state,patientList:action.payload}
-    return newState;
-  }
-  return state;
+// console.log(PatientActionTypes:any)
+const stateAction = (state = defaultState, action:any ) => {
+  switch (action.type) {
+    case SAVE_PATIENTLIST:
+      return { ...state, patientList: action.payload };
+    default:
+      return state;
+  }  
 };
 
 export default stateAction;

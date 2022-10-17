@@ -1,45 +1,55 @@
-import React,{useEffect, useState} from "react";
-import store from "../../redux/store";
+import React,{ useEffect, useState} from "react";
 import Styles from './PatientList.module.css';
 import { PatientCard } from "../../components";
 import { Header } from "../../components";
+import { useSelector } from "../../redux/hooks";
 
-
-// import store from '../../redux/store';
 const {useHistory} = require('react-router-dom');
+// interface IList { id: string; name: string ,username:string,email:string,address:{},phone:string,icon:string}
+// interface ILists extends Array<IList>{}
 
 
-export const PatientList: React.FC  = (props) => {  
+export const PatientList: React.FC = (props) => {  
+  
+  
   const history = useHistory();
-  // console.log(language, 'dd')
   const [PatientListData, setPatientListData] = useState([]);
-  // const [selectPatient,setSelectPatient] = useState<number>();
+  const patientList = useSelector(state => state.patientList);
   
   useEffect(() => {
-    // store.dispatch({
-    //   type: "savePatientList",
-    //   payload:patientData,
-    // }) 
-    const storeState = store.getState();
-    console.log(storeState,'00000')
-    setPatientListData(storeState.patientList);
-    store.subscribe(() => {
-      const storeState = store.getState();
-      
-      // setPatientListData(storeState.patientList);
-      console.log(storeState,'storeState.patientList')
-    })
-  },[])
-// ​
+    setPatientListData(patientList)
+  },[])// eslint-disable-line
+  
+
+  // when click patient
   const handleSelectPatient=(id:number)=>{
     history.push(`/patientdetail/${id}`)
-}
+  }
+  
+  // search patient
+  const handleSearchUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const keyWord = e.target.value;
+    if (keyWord === '') {
+      setPatientListData(patientList);
+    } else {
+      const newPatientList = patientList.slice();     
+      const searchResult = newPatientList.filter((p: any) => p.name.toUpperCase().indexOf(keyWord.toUpperCase())>-1)
+      setPatientListData(searchResult)
+    }
+   
+
+  };
+
   return (
     <div className={Styles.patientListContainer}>    
-      {/* <div className={Styles.signInContainer}><img src={topIcon} alt={'SignIn'} className={Styles.hearderImg} /></div> */}
       <Header title={'Patient'} leftType={'logout'} rightType={'rightType'} />
+      <div className={Styles.searchBox}>
+        <form >
+            <input type='text' placeholder='search' className={Styles.inputBox} onChange={handleSearchUser}/><br />
+        </form>
+      </div>
       <div className={Styles.listBox}>
-        {PatientListData.map((p: any) => (<PatientCard id={p.id} icon={p.icon} name={p.name} onShowPatientDetail={()=>{handleSelectPatient(p.id)}} />))}
+        {PatientListData.map((p: any) => (<PatientCard key={p.id} id={p.id} icon={p.icon} name={p.name} onShowPatientDetail={()=>{handleSelectPatient(p.id)}} />))}
       </div>
    </div>
   )
