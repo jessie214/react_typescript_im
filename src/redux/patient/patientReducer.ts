@@ -7,10 +7,12 @@ const defaultState: patientState = {
   patientList: [],
 };
 
-export default (state = defaultState, action: any) => {
+const stateAction= (state = defaultState, action: any) => {
   if (action.type === "savePatientList") {
     const newState = {...state,patientList:action.payload}
     return newState;
   }
   return state;
 };
+
+export default stateAction;
