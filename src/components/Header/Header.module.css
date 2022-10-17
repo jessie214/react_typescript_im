@@ -1,0 +1,29 @@
+.header{
+  width:100%;
+  position: absolute;
+  top:0px;
+  height:0.50rem;
+  display: flex;
+  background-color: #ffffff;
+  padding-top:0.1rem;
+  box-sizing: border-box;
+}
+.imgBox{
+  display: flex;
+}
+.iconBox{
+  width:0.45rem;
+  height:0.45rem;
+}
+.title{
+  font-size:0.24rem;
+  color:#333333;
+  margin-left:0.1rem;
+  flex:1;
+  margin:0px;
+}
+
+img{
+  width:0.30rem;
+  color:#cfcfcf;
+}

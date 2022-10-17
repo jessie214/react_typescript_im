@@ -1,13 +1,24 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import topIcon from './../../assets/images/signicon.png';
 import Styles from './MobileSignIn.module.css';
+import store from './../../redux/store';
+// import { useSelector } from "../../redux/hooks";
+import patientData from '../../mockdata/patient.json';
 const {useHistory} = require('react-router-dom');
 
-export const MobileSignIn: React.FC = (props) =>  {
+
+export const MobileSignIn: React.FC = (props) => {  
   const [username, setUsername] = useState('admin');
   const [password, setPassword] = useState('123456');
   const [alertMessage, setAlertMessage] = useState('');
   const history = useHistory();
+  
+  useEffect(() => {
+    store.dispatch({
+      type: "savePatientList",
+      payload:patientData,
+    }) 
+  },[])
 // ​
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -15,7 +26,13 @@ export const MobileSignIn: React.FC = (props) =>  {
       if (username === 'admin' && password === '123456') {
           // saveToken(account);
           history.push('/welcome')
-      } else {
+      } else if(username === '' && password === ''){
+        setAlertMessage('Please enter a user name! and your password');
+      }else if(username ===''){
+        setAlertMessage('Please enter a user name!');
+      } else if(password ===''){
+        setAlertMessage('Please enter your password!');
+      }else {
         setAlertMessage('Invalid account or password!');
       }
   }
