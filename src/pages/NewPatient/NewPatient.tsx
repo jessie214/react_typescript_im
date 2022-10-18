@@ -69,7 +69,7 @@ export const NewPatient: React.FC = (props) => {
     setEmail(value)
     if (value.length >= 35) {
       setAlterMessage('Please enter a email within 30 characters')
-    } else if (!(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value))) {
+    } else if (!(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value))) {// eslint-disable-line
       setAlterMessage('please enter your vaild email')
     } else {
       setAlterMessage('')
@@ -82,7 +82,7 @@ export const NewPatient: React.FC = (props) => {
     setPhone(value)
     if (value.length >= 35) {
       setAlterMessage('Please enter a email within 30 characters')
-    } else if (!(/^\d{3}\d{7,8}$/.test(value))) {
+    } else if (!(/^\d{3}\d{7,8}$/.test(value))) {// eslint-disable-line
       setAlterMessage('please enter your vaild phone')
     } else {
       setAlterMessage('')
