@@ -1,6 +1,6 @@
 .header{
   width:100%;
-  position: absolute;
+  position: fixed;
   top:0px;
   height:0.50rem;
   display: flex;
@@ -23,7 +23,8 @@
   margin:0px;
 }
 
-img{
+.header img{
   width:0.30rem;
+  height:0.3rem;
   color:#cfcfcf;
 }

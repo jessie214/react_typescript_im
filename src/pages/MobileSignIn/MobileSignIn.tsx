@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from "react";
 import topIcon from './../../assets/images/signicon.png';
 import Styles from './MobileSignIn.module.css';
-import store from './../../redux/store';
+import { useDispatch } from "react-redux";
 // import { useSelector } from "../../redux/hooks";
 // import {
 //   savePatientActionCreator,
@@ -11,16 +11,16 @@ const {useHistory} = require('react-router-dom');
 
 
 export const MobileSignIn: React.FC = (props) => {  
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('123456');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
   const history = useHistory();
-  
+  const dispatch = useDispatch();
   useEffect(() => {
-    store.dispatch({
+    dispatch({
       type: "save_patientList",
       payload:patientData,
-    }) 
+    })    
   },[])
 // ​
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

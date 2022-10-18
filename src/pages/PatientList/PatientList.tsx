@@ -14,7 +14,7 @@ export const PatientList: React.FC = (props) => {
   
   const history = useHistory();
   const [PatientListData, setPatientListData] = useState([]);
-  const patientList = useSelector(state => state.patientList);
+  const patientList = useSelector(state => state.patient.patientList);
   
   useEffect(() => {
     setPatientListData(patientList)
@@ -36,13 +36,21 @@ export const PatientList: React.FC = (props) => {
       const searchResult = newPatientList.filter((p: any) => p.name.toUpperCase().indexOf(keyWord.toUpperCase())>-1)
       setPatientListData(searchResult)
     }
-   
-
   };
+
+  // handles the exit
+  const handleClickLeftIcon = () => {
+    history.push(`/`)
+  }
+
+  // add user
+  const handleClickRightIcon = () => {
+    history.push('/newpatient')
+  }
 
   return (
     <div className={Styles.patientListContainer}>    
-      <Header title={'Patient'} leftType={'logout'} rightType={'rightType'} />
+      <Header title={'Patient'} type={'patientList'} onClickLeftIcon={()=>{handleClickLeftIcon()}} onClickRightIcon={()=>{handleClickRightIcon()}}/>
       <div className={Styles.searchBox}>
         <form >
             <input type='text' placeholder='search' className={Styles.inputBox} onChange={handleSearchUser}/><br />

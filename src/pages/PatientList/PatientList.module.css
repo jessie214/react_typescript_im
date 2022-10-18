@@ -5,6 +5,7 @@
 .listBox{
   width:100%;
   padding-bottom:0.68rem;
+  padding-top: 1.05rem;
 }
 
 .searchBox{
@@ -12,6 +13,8 @@
   margin-top:0.45rem;
   padding:0.1rem 0.2rem;
   box-sizing: border-box;
+  position: fixed;
+  background-color: #ffffff;
 }
 .inputBox{
   width:100%;
@@ -22,4 +25,5 @@
   font-size: 0.16rem;  
   outline:none;
   border-radius: 10px;
+  padding-left:0.1rem;
 }
