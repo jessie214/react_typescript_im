@@ -37,7 +37,7 @@ export const PatientDetail: React.FC = (props) => {
       setDetail(patientDetailData)
       console.log(patientDetailData,'patientDetailData')
     }    
-  }, [patientId])
+  }, [patientList,patientId])
 
 // handles the exit
 const handleClickLeftIcon = () => {
@@ -53,7 +53,7 @@ const handleClickRightIcon = () => {
     <div className={Styles.patientDetail}>
       <Header title={detail.name} type={'patientDetail'} onClickLeftIcon={()=>{handleClickLeftIcon()}} onClickRightIcon={()=>{handleClickRightIcon()}}/>
       <div className={Styles.detalBox}>
-        
+
       </div>
  
    </div>
