@@ -2,7 +2,10 @@ import React,{ useEffect, useState} from "react";
 import Styles from './PatientList.module.css';
 import { PatientCard } from "../../components";
 import { Header } from "../../components";
+import {Menu} from "../../components/Menu";
 import { useSelector } from "../../redux/hooks";
+
+
 
 const {useHistory} = require('react-router-dom');
 // interface IList { id: string; name: string ,username:string,email:string,address:{},phone:string,icon:string}
@@ -59,6 +62,7 @@ export const PatientList: React.FC = (props) => {
       <div className={Styles.listBox}>
         {PatientListData.map((p: any) => (<PatientCard key={p.id} id={p.id} icon={p.icon} name={p.name} onShowPatientDetail={()=>{handleSelectPatient(p.id)}} />))}
       </div>
+      <Menu selected={'contact'} />
    </div>
   )
 }

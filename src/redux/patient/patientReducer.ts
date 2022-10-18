@@ -1,8 +1,8 @@
 import { SAVE_PATIENTLIST } from "./patientActions";
 
 export interface patientState {
-  patientList: [];
-  // { id: string; name: string ,username:string,email:string,address:{},phone:string,icon:string}[]
+  patientList: { id: number; name: string ,username:string,email:string,address:{},phone:string,icon:string}[];
+  // 
 }
 
 const defaultState: patientState = {

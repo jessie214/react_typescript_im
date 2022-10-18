@@ -1,0 +1,15 @@
+.menu{
+  position: fixed;
+  width:100%;
+  bottom:0px;
+  background-color: #ffffff;
+  border-top:1px #e1e3e7 solid;
+  height:0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.menu img{
+  width:0.32rem;
+}

@@ -4,7 +4,7 @@
 
 .listBox{
   width:100%;
-  padding-bottom:0.68rem;
+  padding-bottom:0.5rem;
   padding-top: 1.05rem;
 }
 
@@ -26,4 +26,5 @@
   outline:none;
   border-radius: 10px;
   padding-left:0.1rem;
+  box-sizing: border-box;
 }

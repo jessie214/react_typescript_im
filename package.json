@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "json-server": "^0.17.0",
     "redux-devtools-extension": "^2.13.9",
     "typescript-plugin-css-modules": "^3.4.0"
