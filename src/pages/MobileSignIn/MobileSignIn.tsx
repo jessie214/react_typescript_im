@@ -11,8 +11,8 @@ const {useHistory} = require('react-router-dom');
 
 
 export const MobileSignIn: React.FC = (props) => {  
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('admin');
+  const [password, setPassword] = useState('123456');
   const [alertMessage, setAlertMessage] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
