@@ -21,7 +21,7 @@ export const MobileSignIn: React.FC = (props) => {
       type: "save_patientList",
       payload:patientData,
     })    
-  },[])
+  },[dispatch])
 // ​
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
