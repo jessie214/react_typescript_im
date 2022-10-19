@@ -53,14 +53,24 @@ export const PatientList: React.FC = (props) => {
 
   return (
     <div className={Styles.patientListContainer}>    
-      <Header title={'Patient'} type={'patientList'} onClickLeftIcon={()=>{handleClickLeftIcon()}} onClickRightIcon={()=>{handleClickRightIcon()}}/>
+      <Header
+        title={'Patient'}
+        type={'patientList'}
+        onClickLeftIcon={() => { handleClickLeftIcon() }}
+        onClickRightIcon={() => { handleClickRightIcon() }} />
       <div className={Styles.searchBox}>
         <form >
             <input type='text' placeholder='search' className={Styles.inputBox} onChange={handleSearchUser}/><br />
         </form>
       </div>
       <div className={Styles.listBox}>
-        {PatientListData.map((p: any) => (<PatientCard key={p.id} id={p.id} icon={p.icon} name={p.name} onShowPatientDetail={()=>{handleSelectPatient(p.id)}} />))}
+        {PatientListData.map((p: any) => (
+          <PatientCard
+            key={p.id}
+            id={p.id}
+            icon={p.icon}
+            name={p.name}
+            onShowPatientDetail={() => { handleSelectPatient(p.id) }} />))}
       </div>
       <Menu selected={'contact'} />
    </div>

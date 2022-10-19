@@ -1,15 +1,15 @@
-export const SAVE_CHAT = "save_patientList";
+export const SAVE_CHATLIST = "save_chatlist";
 
-interface savePatientAction{
-  type: typeof SAVE_CHAT,
-  payload:[]
+interface saveChatAction{
+  type: typeof SAVE_CHATLIST,
+  payload:any
 }
-export type PatientActionTypes = savePatientAction;
+export type ChatActionTypes = saveChatAction;
 
-export const savePatientActionCreator = (pationtList: []): savePatientAction => {
+export const saveChatActionCreator = (chatList: any): saveChatAction => {
   return {
-    type: SAVE_CHAT,
-     payload:pationtList
+    type: SAVE_CHATLIST,
+     payload:chatList
   }
   
 }

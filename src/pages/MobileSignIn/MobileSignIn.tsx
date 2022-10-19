@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 //   savePatientActionCreator,
 // } from "../../redux/patient/patientActions";
 import patientData from '../../mockdata/patient.json';
+import chatData from '../../mockdata/chat.json';
 const { useHistory } = require('react-router-dom');
 
 
@@ -20,6 +21,10 @@ export const MobileSignIn: React.FC = (props) => {
     dispatch({
       type: "save_patientList",
       payload: patientData,
+    });
+    dispatch({
+      type: "save_chatlist",
+      payload:chatData,
     })
   }, [dispatch])
   // ​

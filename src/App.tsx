@@ -2,7 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import styles from './App.module.css';
 
-import { DesktopSignIn,MobileSignIn,WelcomPage,PatientList, NewPatient, PatientDetail} from './pages';
+import { DesktopSignIn,MobileSignIn,WelcomPage,PatientList, NewPatient, PatientDetail,ChatList} from './pages';
 const {BrowserRouter,Route,Switch} = require('react-router-dom');
 function  IsMobile (){
   let plat = navigator.userAgent.match(  
@@ -26,7 +26,7 @@ function App() {
           <Route path="/patientlist" component={PatientList} />
           <Route path="/newpatient" component={NewPatient} />
           <Route path="/patientdetail/:patientId" component={PatientDetail} />
-          <Route path="/chatlist" render={() => <h1>ChatList</h1>} />
+          <Route path="/chatlist" component={ChatList} />
           <Route path="/chatdetail/:patientId" render={() => <h1>ChatDetail</h1>} />
           <Route render={()=><h1>404 not found</h1>}/>
       </Switch>  

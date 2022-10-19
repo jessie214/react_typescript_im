@@ -1,21 +1,19 @@
-import { SAVE_CHAT } from "./chatActions";
+import { SAVE_CHATLIST } from "./chatActions";
 
 export interface chatState {
-  chatList: [];
-  // { id: string; name: string ,username:string,email:string,address:{},phone:string,icon:string}[]
+  chatList: any;
 }
 
 const defaultState: chatState = {
-  chatList: [],
+  chatList: {},
 };
 // console.log(PatientActionTypes:any)
-const stateAction = (state = defaultState, action:any ) => {
+const stateAction = (state = defaultState, action: any) => {
   switch (action.type) {
-    case SAVE_CHAT:
+    case SAVE_CHATLIST:
       return { ...state, chatList: action.payload };
     default:
       return state;
   }  
 };
-
 export default stateAction;
