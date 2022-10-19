@@ -1,0 +1,46 @@
+.confirmDalogue{
+  position: fixed;
+  top:0;
+  width:100vw;
+  height:100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+.dalogueBox{
+  top:calc(100vh/2 - 1.5rem);
+  position: absolute;
+  background: #ffffff;
+  width: 80vw;
+  left: 10vw;
+  padding:0.2rem;
+  box-sizing: border-box;
+  border-radius: 0.1rem;
+}
+
+.dalogueBox p{
+  text-align: left;
+}
+
+.buttonBox{
+  margin-top:0.4rem;
+}
+
+.buttonBox button{
+  width:0.8rem;
+  height:0.3rem;
+  background-color: #f7f7f7;
+  border:1px #e1e3e7 solid;
+  border-radius: 0.05rem;
+  font-size:0.15rem;
+  font-size: #676767;
+}
+
+.buttonBox .confirmButton{
+  margin-right:0.2rem;
+  background-color: #07a3c8;
+  color:#ffffff;
+}
+
+.dalogueBox .content{
+  font-size:0.14rem;
+  color:#333333;
+}

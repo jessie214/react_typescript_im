@@ -1,7 +1,8 @@
-
+.patientDetail{
+  position: relative;
+}
 .detalBox{
   margin-top:0.5rem;
-  display: flex;
   justify-content: center;
 }
 
@@ -9,6 +10,7 @@
   background-color: #f7f7f7;
   width: 100%;
   padding: 0.2rem;
+  box-sizing: border-box;
 }
 .detalBox .iconBg{
   background-color: #e8edeb;
@@ -35,4 +37,39 @@
 .detalBox .iconBox img{
   width:0.96rem;
   height:0.96rem;
+}
+
+.detailList{
+  box-sizing: border-box;
+  padding:0.2rem 0.3rem;
+  text-align: left;
+  
+}
+
+.detailList .detailBox{
+  border-bottom: 1px #e7e7e7 solid;
+  padding:0.1rem 0;
+}
+
+.detailList h3{
+  margin-bottom: 0rem;
+  font-size: 0.14rem;
+  color:#8b8a8a;
+  font-weight: normal;
+}
+
+.detailList span{
+  color:#4c4c4c;
+  font-size:0.16rem;
+}
+
+.sentButton{
+  width:100%;
+  height:0.4rem;
+  color:#ffffff;
+  font-size:0.18rem;
+  background-color:#07a3c8;
+  border:none;
+  border-radius: 10px;
+  margin-top:0.4rem;
 }

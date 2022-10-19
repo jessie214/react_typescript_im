@@ -27,7 +27,7 @@ function App() {
           <Route path="/newpatient" component={NewPatient} />
           <Route path="/patientdetail/:patientId" component={PatientDetail} />
           <Route path="/chatlist" render={() => <h1>ChatList</h1>} />
-          <Route path="/chatdetail" render={() => <h1>ChatDetail</h1>} />
+          <Route path="/chatdetail/:patientId" render={() => <h1>ChatDetail</h1>} />
           <Route render={()=><h1>404 not found</h1>}/>
       </Switch>  
       </BrowserRouter>
