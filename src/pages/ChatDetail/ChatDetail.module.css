@@ -45,6 +45,7 @@
   font-size: 0.12rem;
   position: relative;
   word-break: break-all;
+  min-width: 0.15rem;
 
 }
 .doctorChatBox .contentBox p{
