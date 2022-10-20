@@ -30,6 +30,7 @@ export const ChatDetail: React.FC = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const searchInput = React.useRef<HTMLInputElement>(null)
+  const detailRef = React.useRef<HTMLDivElement>(null)
   const patientList = useSelector(state => state.patient.patientList);
   const chatContent = useSelector(state => state.chat.chatList)
 
@@ -59,16 +60,6 @@ export const ChatDetail: React.FC = (props) => {
   const [message, setMessage] = useState('');
 
 
-  useEffect(() => {
-    if (patientList) {
-      let patientDetailData: patientDetailData = patientList.filter((p: any) => p.id === Number(patientId))[0];
-      let chatDetailData: chatDetailData = chatContent[Number(patientId)];
-      setChatDetail(chatDetailData)
-      setPatientDetail(patientDetailData)
-      console.log(chatDetailData, 'chatDetailData')
-    }
-  }, [chatContent, patientId,patientList])
-
   // handles the exit
   const handleClickLeftIcon = () => {
     history.go(-1)
@@ -85,7 +76,6 @@ export const ChatDetail: React.FC = (props) => {
       let detail: any = chatDetail[item as keyof typeof chatDetail];
       let icon: string = detail.id === 100 ? avatar.doctor[0] : patientDetail.icon;
       let role: string = detail.id === 100 ? 'doctor' : 'patient';
-      
 
       return (
         <div key={index} className={Styles[`${role === 'doctor' ? 'doctorChatBox' : 'chatBox'}`]}>
@@ -106,7 +96,7 @@ export const ChatDetail: React.FC = (props) => {
     let h = myDate.getHours(); // get hour(0-23)
     let m = myDate.getMinutes(); // get minute(0-59)
     // let s = myDate.getSeconds();// get second(0-59)
-    let timeStr = h + ':' + m ;
+    let timeStr = h + ':' + m;
     return timeStr;
   }
 
@@ -118,22 +108,38 @@ export const ChatDetail: React.FC = (props) => {
     }
     let newContent = chatContent;
     newContent[Number(patientId)].push(newChat);
+    // update store
     dispatch({
       type: "save_chat",
-      payload:newContent,
+      payload: newContent,
     })
     setChatDetail(newContent[Number(patientId)])
     setMessage('')
     // clear input text
     if (searchInput.current) {
       searchInput.current.value = '';
-    }    
+    }
   }
+
+  // Set the scrollbar to the bottom when sent message
+  useEffect(() => {
+    const current = detailRef.current!
+    current.scrollTop = current.scrollHeight
+  }, [message])
+
+  useEffect(() => {
+    if (patientList) {
+      let patientDetailData: patientDetailData = patientList.filter((p: any) => p.id === Number(patientId))[0];
+      let chatDetailData: chatDetailData = chatContent[Number(patientId)];
+      setChatDetail(chatDetailData)
+      setPatientDetail(patientDetailData)
+    }
+  }, [chatContent, patientId, patientList])
 
   return (
     <div className={Styles.chatDetail}>
       <Header title={patientDetail.name} type={'chatDetail'} onClickLeftIcon={() => { handleClickLeftIcon() }} onClickRightIcon={() => { handleClickRightIcon() }} />
-      <div className={Styles.detalBox}>
+      <div className={Styles.detalBox} ref={detailRef} >
         {renderChatDetail()}
       </div>
       <div className={Styles.searchBox}>

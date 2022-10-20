@@ -44,6 +44,7 @@
   text-align: left;
   font-size: 0.12rem;
   position: relative;
+  word-break: break-all;
 
 }
 .doctorChatBox .contentBox p{
