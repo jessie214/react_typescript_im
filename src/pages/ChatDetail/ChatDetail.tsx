@@ -102,6 +102,7 @@ export const ChatDetail: React.FC = (props) => {
   }
 
   const handleSentMessage = () => {
+    if (message === '') return;
     let newChat = {
       id: 100,
       content: message,
@@ -111,7 +112,6 @@ export const ChatDetail: React.FC = (props) => {
     if (newContent.hasOwnProperty(patientId)){
       newContent[Number(patientId)].push(newChat);
     } else {
-      console.log(patientId, '---')
       newContent[patientId] = [newChat];
     }
     
