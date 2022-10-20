@@ -35,7 +35,7 @@ export const ChatDetail: React.FC = (props) => {
   const chatContent = useSelector(state => state.chat.chatList)
 
   // get params in URL
-  const { patientId } = useParams<{ patientId: string | undefined }>();
+  const { patientId } = useParams<{ patientId: string}>();
 
   const [chatDetail, setChatDetail] = useState<chatDetailData>(
     {
@@ -72,6 +72,7 @@ export const ChatDetail: React.FC = (props) => {
 
   // Rendering from role
   const renderChatDetail = () => {
+    if (!chatDetail) return;
     return Object.keys(chatDetail).map((item: string, index: number) => {
       let detail: any = chatDetail[item as keyof typeof chatDetail];
       let icon: string = detail.id === 100 ? avatar.doctor[0] : patientDetail.icon;
@@ -107,7 +108,13 @@ export const ChatDetail: React.FC = (props) => {
       time: getDate()
     }
     let newContent = chatContent;
-    newContent[Number(patientId)].push(newChat);
+    if (newContent.hasOwnProperty(patientId)){
+      newContent[Number(patientId)].push(newChat);
+    } else {
+      console.log(patientId, '---')
+      newContent[patientId] = [newChat];
+    }
+    
     // update store
     dispatch({
       type: "save_chat",

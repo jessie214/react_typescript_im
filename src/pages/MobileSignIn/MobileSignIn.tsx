@@ -15,8 +15,10 @@ export const MobileSignIn: React.FC = (props) => {
   const [username, setUsername] = useState('admin');
   const [password, setPassword] = useState('123456');
   const [alertMessage, setAlertMessage] = useState('');
+
   const history = useHistory();
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch({
       type: "save_patientList",
@@ -34,6 +36,7 @@ export const MobileSignIn: React.FC = (props) => {
     if (username === 'admin' && password === '123456') {
       // saveToken(account);
       history.push('/welcome')
+      sessionStorage.setItem('user', 'login');
     } else if (username === '' && password === '') {
       setAlertMessage('Please enter a user name! and your password');
     } else if (username === '') {
@@ -44,6 +47,7 @@ export const MobileSignIn: React.FC = (props) => {
       setAlertMessage('Invalid account or password!');
     }
   }
+
   const handleUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value)
     setAlertMessage('')
@@ -66,6 +70,5 @@ export const MobileSignIn: React.FC = (props) => {
         <button className={Styles.buttonBox} type='submit'>SignIn</button>
       </form>
     </div>
-    {/* <Link to={'./welcome'}><button>SignIn</button></Link> */}
   </div>
 }
