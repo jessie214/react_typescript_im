@@ -26,6 +26,7 @@ export const ChatList: React.FC = () => {
     Object.keys(chatContent).forEach((key) => {
       let patientId: number = Number(key);
       let patientData: any = patientList.filter((p: any) => p.id === patientId)[0];
+      if (!patientData){return}
       let list = {
         id: patientId,
         name: patientData.name,
