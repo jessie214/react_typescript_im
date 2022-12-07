@@ -43,7 +43,8 @@ export const NewPatient: React.FC = (props) => {
     } else {
       // get a avatar for new patient 
       let icon = gender === 'female' ? avatarData.female[Math.floor((Math.random() * avatarData.female.length))]:avatarData.male[Math.floor((Math.random() * avatarData.male.length))];
-      let newPatient = { id: patientList.length + 1, name,gender, email, phone,icon}
+      let newId = patientList[patientList.length - 1].id + 1;
+      let newPatient = { id:newId, name, gender, email, phone, icon }
       // console.log(newPatient,'newPatient')
       dispatch({
         type: "save_patientList",
