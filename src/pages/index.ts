@@ -6,5 +6,6 @@ export * from './NewPatient';
 export * from './PatientDetail';
 export * from './ChatList';
 export * from './ChatDetail';
+export * from './DesktopHome';
 
 

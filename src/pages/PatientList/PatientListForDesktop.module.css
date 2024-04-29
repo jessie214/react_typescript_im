@@ -1,0 +1,85 @@
+.patientListContainer{
+  width:100%;
+}
+
+.listBox{
+  width:100%;
+  padding-top: 1.05rem;
+}
+
+.searchBox{
+  width:290px;
+  margin-top:0.45rem;
+  padding:0.1rem 0.2rem;
+  box-sizing: border-box;
+  position: fixed;
+  background-color: #ffffff;
+}
+.inputBox{
+  width:100%;
+  height:0.4rem;
+  background-color: #f8f8f8;
+  border:none;
+  color:#a3abb9;
+  font-size: 0.16rem;  
+  outline:none;
+  border-radius: 10px;
+  padding-left:0.1rem;
+  box-sizing: border-box;
+}
+/*header*/
+.header{
+  width:290px;
+  position: fixed;
+  top:0px;
+  height:0.50rem;
+  display: flex;
+  background-color: #ffffff;
+  padding:0.1rem;
+  box-sizing: border-box;
+  z-index: 9;
+}
+.imgBox{
+  display: flex;
+}
+.iconBox{
+  width:0.45rem;
+  height:0.45rem;
+}
+.title{
+  font-size:0.24rem;
+  color:#333333;
+  margin-left:0.1rem;
+  flex:1;
+  margin:0px;
+}
+
+.header img{
+  width:0.30rem;
+  height:0.3rem;
+  color:#cfcfcf;
+}
+
+/*  scroll */
+::-webkit-scrollbar {
+  width: 6px;
+  height:6px;
+  background-color: rgb(180, 183, 200);
+}
+/* scroll-background */
+::-webkit-scrollbar-track {
+  background-color: rgb(247, 237, 237);
+}
+/*  scroll-bar */
+::-webkit-scrollbar-thumb {
+  background: #c7d0e4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-button:start {
+  background-color: rgb(247, 237, 237);
+  background-size: 6px 6px;
+}
+::-webkit-scrollbar-button:end {
+  background-color: rgb(247, 237, 237);
+  background-size: 6px 6px;
+}

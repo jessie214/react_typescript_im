@@ -2,7 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import styles from './App.module.css';
 
-import { DesktopSignIn,MobileSignIn,WelcomPage,PatientList, NewPatient, PatientDetail,ChatList,ChatDetail} from './pages';
+import { DesktopSignIn,MobileSignIn,WelcomPage,PatientList, NewPatient, PatientDetail,ChatList,ChatDetail,DesktopHome} from './pages';
 const { BrowserRouter, Route, Switch, Redirect } = require('react-router-dom');
 
 
@@ -65,6 +65,10 @@ function App() {
           <PrivateRoute
             path="/chatdetail/:patientId"
             component={ChatDetail}
+          />
+          <PrivateRoute
+            path="/desktophome"
+            component={DesktopHome}
           />
           <Route render={()=><h1>404 not found</h1>}/>
       </Switch>  

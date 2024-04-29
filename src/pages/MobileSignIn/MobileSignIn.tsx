@@ -12,8 +12,8 @@ const { useHistory } = require('react-router-dom');
 
 
 export const MobileSignIn: React.FC = (props) => {
-  const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('123456');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
 
   const history = useHistory();
@@ -31,21 +31,28 @@ export const MobileSignIn: React.FC = (props) => {
   }, [dispatch])
   // ​
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    
     e.preventDefault();
     // 判断输入帐号和密码
-    if (username === 'admin' && password === '123456') {
-      // saveToken(account);
-      history.push('/welcome')
-      sessionStorage.setItem('user', 'login');
-    } else if (username === '' && password === '') {
-      setAlertMessage('Please enter a user name! and your password');
-    } else if (username === '') {
-      setAlertMessage('Please enter a user name!');
-    } else if (password === '') {
-      setAlertMessage('Please enter your password!');
-    } else {
-      setAlertMessage('Invalid account or password!');
-    }
+    switch (true) {
+      case username === 'test' && password === '123456':
+          // saveToken(account);
+          history.push('/welcome');
+          sessionStorage.setItem('user', 'login');
+          break;
+      case username === '' && password === '':
+          setAlertMessage('Please enter a user name! and your password');
+          break;
+      case username === '':
+          setAlertMessage('Please enter a user name!');
+          break;
+      case password === '':
+          setAlertMessage('Please enter your password!');
+          break;
+      default:
+          setAlertMessage('Invalid account or password!');
+          break;
+  }
   }
 
   const handleUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,5 +77,6 @@ export const MobileSignIn: React.FC = (props) => {
         <button className={Styles.buttonBox} type='submit'>SignIn</button>
       </form>
     </div>
+    <div style={{ paddingLeft: '40px' }}><p>username: test</p>   <p>password: 123456</p></div>
   </div>
 }
