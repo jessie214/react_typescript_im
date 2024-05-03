@@ -1,7 +1,6 @@
 import React,{ useEffect, useState} from "react";
 import Styles from './PatientListForDesktop.module.css';
 import { PatientCard } from "../../components";
-import { Header } from "../../components";
 import { useSelector } from "../../redux/hooks";
 import logout from '../../assets/images/logout.svg';
 import addUser from '../../assets/images/adduser.svg';

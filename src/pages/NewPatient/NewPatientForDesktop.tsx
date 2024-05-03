@@ -5,7 +5,6 @@ import avatarData from '../../mockdata/avatar.json';
 import { useDispatch } from "react-redux";
 
 
-const {useHistory} = require('react-router-dom');
 
 interface PropsType{
   isShowAddDalogue: boolean;
@@ -23,7 +22,6 @@ export const NewPatientForDesktop: React.FC<PropsType> = ({
   const [alterMessage, setAlterMessage] = useState('');
   
   const dispatch = useDispatch();
-  const history = useHistory();
   const patientList = useSelector(state => state.patient.patientList);
 
 
@@ -93,8 +91,7 @@ export const NewPatientForDesktop: React.FC<PropsType> = ({
 
   // When click cancel button
   const handleCancel = () => {
-    // onClickAddPatient(false,undefined)
-    setName('')
+    onClickAddPatient(false,undefined)    
   }
 
   return (

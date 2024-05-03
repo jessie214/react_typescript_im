@@ -3,7 +3,6 @@ import Styles from './PatientDetailForDesktop.module.css';
 import { useSelector } from "../../redux/hooks";
 
 
-const { useHistory } = require('react-router-dom');
 
 interface detailData {
   id: number;
@@ -23,7 +22,6 @@ export const PatientDetailForDesktop: React.FC<PropsType> = ({
   patientId,
   setIsShowDalogue,
 }) => {
-  const history = useHistory();
   const patientList = useSelector(state => state.patient.patientList);
 
 
@@ -41,7 +39,7 @@ export const PatientDetailForDesktop: React.FC<PropsType> = ({
 
 
   useEffect(() => {
-    if (patientList && patientId != '') {
+    if (patientList && patientId !== '') {
       let patientDetailData: detailData = patientList.filter((p: any) => p.id === Number(patientId))[0];
       setDetail(patientDetailData)
     }

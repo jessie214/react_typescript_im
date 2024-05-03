@@ -17,12 +17,10 @@ export const DesktopHome: React.FC = (props) => {
 
   // get first patient id
   useEffect(() => {
-    setPatientId(patientList[0].id)
-  }, [])
-  
-  useEffect(() => {
-    console.log(isShowAddDalogue);
-  }, [isShowAddDalogue])
+    if (patientId === '') {
+      setPatientId(patientList[0].id)
+    }    
+  }, [patientList,patientId]) 
 
 
   const handleGetId = (id:string) => {
