@@ -1,7 +1,7 @@
 .chatDetail{
   position: relative;
   background-color: #f8f8f8;
-  height:calc(100vh - 150px);
+  height:calc(100vh - 0.5rem);
   overflow-y: auto;
 }
 

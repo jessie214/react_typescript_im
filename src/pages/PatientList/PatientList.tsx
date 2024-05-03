@@ -36,7 +36,7 @@ export const PatientList: React.FC = (props) => {
       setPatientListData(patientList);
     } else {
       const newPatientList = patientList.slice();     
-      const searchResult = newPatientList.filter((p: any) => p.name.toUpperCase().indexOf(keyWord.toUpperCase())>-1)
+      const searchResult = newPatientList.filter((p: any) => p.name.toUpperCase().indexOf(keyWord.toUpperCase())>-1 || p.phone.includes(keyWord))
       setPatientListData(searchResult)
     }
   };
@@ -60,7 +60,7 @@ export const PatientList: React.FC = (props) => {
         onClickRightIcon={() => { handleClickRightIcon() }} />
       <div className={Styles.searchBox}>
         <form >
-            <input type='text' placeholder='search' className={Styles.inputBox} onChange={handleSearchUser}/><br />
+            <input type='text' placeholder='Name/Phone' className={Styles.inputBox} onChange={handleSearchUser}/><br />
         </form>
       </div>
       <div className={Styles.listBox}>

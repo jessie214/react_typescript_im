@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect,  useState } from "react";
 import Styles from './PatientDetail.module.css';
 import { useSelector } from "../../redux/hooks";
 import { Header } from "../../components";
@@ -39,14 +39,12 @@ export const PatientDetail: React.FC = (props) => {
 
   const [isShowdDalogue, setIsShowdDalogue] = useState(false);
 
-  // useEffect(() => {
-  //   console.log(patientId,patientList)
-  //   if (patientList && patientId !='') {
-  //     let patientDetailData: detailData = patientList.filter((p: any) => p.id === Number(patientId))[0];
-  //     setDetail(patientDetailData)
-  //     console.log(patientDetailData, 'patientDetailData')
-  //   }
-  // }, [patientList, patientId])
+  useEffect(() => {
+    if (patientList && patientId !=='') {
+      let patientDetailData: detailData = patientList.filter((p: any) => p.id === Number(patientId))[0];
+      setDetail(patientDetailData)
+    }
+  }, [patientList, patientId])
 
   // handles the exit
   const handleClickLeftIcon = () => {
