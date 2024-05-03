@@ -1,0 +1,77 @@
+.NewPatientContainer{
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top:0;
+  width:100vw;
+  height:100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+
+}
+.formBox{
+  padding:0.24rem;
+  box-sizing: border-box;
+  top:calc((100vh - 400px)/2);
+  position: absolute;
+  background: #ffffff;
+  width: 500px;
+  left:calc((100vw - 500px)/2);
+  padding:0.2rem;
+  box-sizing: border-box;
+  border-radius: 0.1rem;
+}
+
+.row{
+  height:0.8rem;
+}
+
+.rowRadio{
+  text-align: left;
+}
+.rowRadio span{
+  margin-right:0.5rem;
+}
+
+.inputBox{
+  width:100%;
+  height:0.4rem;
+  background-color: #f8f8f8;
+  border:none;
+  color:#a3abb9;
+  font-size: 0.16rem;  
+  outline:none;
+  border-radius: 10px;
+  padding-left:0.1rem;
+  box-sizing: border-box;
+}
+
+.buttonBox{
+  width:60%;
+  height:0.4rem;
+  color:#ffffff;
+  font-size:0.18rem;
+  background-color:#07a3c8;
+  border:none;
+  border-radius: 10px;
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.cancelBox{
+  width:35%;
+  height:0.4rem;
+  color:#606060;
+  font-size:0.18rem;
+  background-color:#dbdbdb;
+  border:none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.messageBox{
+  height:0.2rem;
+  text-align: left;
+}

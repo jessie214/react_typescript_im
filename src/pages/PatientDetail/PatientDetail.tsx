@@ -39,13 +39,14 @@ export const PatientDetail: React.FC = (props) => {
 
   const [isShowdDalogue, setIsShowdDalogue] = useState(false);
 
-  useEffect(() => {
-    if (patientList) {
-      let patientDetailData: detailData = patientList.filter((p: any) => p.id === Number(patientId))[0];
-      setDetail(patientDetailData)
-      console.log(patientDetailData, 'patientDetailData')
-    }
-  }, [patientList, patientId])
+  // useEffect(() => {
+  //   console.log(patientId,patientList)
+  //   if (patientList && patientId !='') {
+  //     let patientDetailData: detailData = patientList.filter((p: any) => p.id === Number(patientId))[0];
+  //     setDetail(patientDetailData)
+  //     console.log(patientDetailData, 'patientDetailData')
+  //   }
+  // }, [patientList, patientId])
 
   // handles the exit
   const handleClickLeftIcon = () => {

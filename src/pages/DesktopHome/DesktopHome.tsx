@@ -1,50 +1,88 @@
 import React, { useEffect, useState } from "react";
 import Styles from './DesktopHome.module.css';
-import { useDispatch } from "react-redux";
 import { PatientListForDesktop } from "../PatientList/PatientListForDesktop";
-import { PatientDetail } from "../PatientDetail";
-import { ChatDetail } from "../ChatDetail";
-import patientData from '../../mockdata/patient.json';
-import chatData from '../../mockdata/chat.json';
-const { useHistory } = require('react-router-dom');
-export const DesktopHome: React.FC = (props) =>  {
+import { PatientDetailForDesktop } from "../PatientDetail";
+import { ChatDetailForDesktop } from "../ChatDetail/";
+import { useSelector } from "../../redux/hooks";
+import { ConfirmDalogue } from "../../components";
+import { useDispatch } from "react-redux";
+import { NewPatientForDesktop } from "../NewPatient";
+export const DesktopHome: React.FC = (props) => {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [alertMessage, setAlertMessage] = useState('');
-  const [patientId, setPatientId] = useState('');
-
-  const history = useHistory();
   const dispatch = useDispatch();
+  const [patientId, setPatientId] = useState('');
+  const patientList = useSelector(state => state.patient.patientList);
+  const [isShowDalogue, setIsShowDalogue] = useState(false);  // when delete patient
+  const [isShowAddDalogue, setIsShowAddDalogue] = useState(false); // when add patient
 
-  // useEffect(() => {
-  //   dispatch({
-  //     type: "save_patientList",
-  //     payload: patientData,
-  //   });
-  //   dispatch({
-  //     type: "save_chatlist",
-  //     payload:chatData,
-  //   })
-  // }, [dispatch])
-  // ​
+  // get first patient id
+  useEffect(() => {
+    setPatientId(patientList[0].id)
+  }, [])
+  
+  useEffect(() => {
+    console.log(isShowAddDalogue);
+  }, [isShowAddDalogue])
+
 
   const handleGetId = (id:string) => {
     setPatientId(id);
   }
 
+  // handle delete a patient
+  const handleClickConfirm = () => {
+    let newPatient = patientList.filter((p: any) => p.id !== Number(patientId));
+    dispatch({
+      type: "save_patientList",
+      payload:[...newPatient]
+    })
+    setIsShowDalogue(false);   
+    setPatientId(patientList[0].id)
+  }
 
+  const handleClickCancel = () => {
+    setIsShowDalogue(false);
+  }
+
+  const handleSetIsShowDalogue = (newValue:boolean) => {
+    setIsShowDalogue(newValue);
+  }
+
+  /*add new patient*/
+  const handleAddPatient = (isAdd:boolean,newId?:string) => {
+    setIsShowAddDalogue(isAdd);
+    if (newId) {
+      setPatientId(newId)
+    }    
+  }
 
   return <div className={Styles.DesktopHomebox}>
     {/* patientList */}
     <div className={Styles.leftbox}>
-      <PatientListForDesktop onClickGetPatientId={(id:string)=>{handleGetId(id)} }/>
+      <PatientListForDesktop
+        onClickGetPatientId={(id: string) => { handleGetId(id) }}
+        onClickAddPatient={(isAdd) => { handleAddPatient(isAdd,undefined) }}
+      />
     </div>
     {/* chatDetai */}
-    <div className={Styles.right}>
-      {/* <PatientDetail/> */}
-      {/* <ChatDetail/> */}
+    <div className={Styles.rightbox}>
+      <PatientDetailForDesktop
+        patientId={patientId}
+        setIsShowDalogue={(newValue) => handleSetIsShowDalogue(newValue)}
+      />
+      <ChatDetailForDesktop patientId={patientId}/>
     </div>
-     
+    {/* delete ConfirmDalogue */}
+    <ConfirmDalogue
+        isShow={isShowDalogue}
+        content={'Are you sure you want to delete this patient information?'}
+        onClickConfirm={() => handleClickConfirm()}
+        onClickCancel={() => handleClickCancel()}        
+    />
+    {/* add new patient */}
+    <NewPatientForDesktop
+      isShowAddDalogue={isShowAddDalogue}
+      onClickAddPatient={(isAdd,newId) => { handleAddPatient(isAdd,newId) }}
+    />
   </div>
 }

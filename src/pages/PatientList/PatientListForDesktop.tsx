@@ -11,9 +11,11 @@ const {useHistory} = require('react-router-dom');
 
 interface PropsType {
   onClickGetPatientId: (patientId: string) => void;
+  onClickAddPatient: (value:boolean) => void;
 }
 export const PatientListForDesktop: React.FC<PropsType> = ({
   onClickGetPatientId,
+  onClickAddPatient,
 }) => {   
   const history = useHistory();
   const [PatientListData, setPatientListData] = useState([]);
@@ -21,7 +23,7 @@ export const PatientListForDesktop: React.FC<PropsType> = ({
   
   useEffect(() => {
     setPatientListData(patientList)
-  },[])// eslint-disable-line
+  },[patientList])// eslint-disable-line
   
 
   // when click patient
@@ -48,7 +50,7 @@ export const PatientListForDesktop: React.FC<PropsType> = ({
 
   // add user
   const handleClickRightIcon = () => {
-    history.push('/newpatient')
+    onClickAddPatient(true)
   }
 
   return (

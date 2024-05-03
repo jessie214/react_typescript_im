@@ -1,0 +1,67 @@
+.patientDetail{
+  position: relative;
+  /* background-color: #f7f7f7; */
+  border-bottom:1px #cccccc solid;
+}
+.detalBox{
+  display: flex;
+}
+
+.title{
+  font-size:18px;
+  color:#333333;
+  padding-top:10px;
+}
+.detalBox .iconBox{
+  width:300px; 
+  padding: 8px;
+  box-sizing: border-box;
+}
+.detalBox .iconBox img{
+  width:80px;
+}
+.detalBox .iconBg{
+  background-color: #e8edeb;
+  width:100px;
+  height:100px;
+  border-radius: 1.16rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  margin: 0 auto;
+}
+.deleteButton{
+  background-color: #ffffff;
+  font-size:0.14rem;
+  color:#bcbaba;
+  border: 1px #e1e3e7 solid;
+  border-radius: 0.05rem;
+  width:1.16rem;
+  height:0.3rem;
+  margin-top:0.2rem;
+  float:right;
+  margin-top:-20px;
+  cursor:pointer
+}
+
+
+.detailList{
+  box-sizing: border-box;
+  padding:10px;
+  text-align: left;
+  margin-top:10px;
+  flex:1;
+  
+}
+
+.detailList .detailBox{
+  padding:5px 0;
+  font-size: 0.14rem;
+  color:#8b8a8a;
+  
+}
+
+.detailList span{
+  color:#4c4c4c;
+  font-size:0.16rem;
+}
